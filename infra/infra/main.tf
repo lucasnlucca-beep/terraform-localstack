@@ -13,4 +13,9 @@
 resource "aws_s3_bucket" "meu_bucket" {
   bucket = "meu-bucket-localstack"
   acl    = "private"
+  force_destroy = true
+
+# path style só funciona no provider v5+ quando você usa esse argumento dentro do resource
+  # ou através de variáveis de ambiente:
+  #   AWS_S3_FORCE_PATH_STYLE=true
 }
